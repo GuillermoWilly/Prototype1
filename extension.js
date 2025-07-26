@@ -30,6 +30,14 @@ function activate(context) {
 		)
 		panel.webview.html = getWebviewContent();
 
+		panel.webview.onDidReceiveMessage(message=>{
+			switch(message.command){
+				case 'alert':
+					vscode.window.showInformationMessage(message.text);
+					return;
+			}
+		});
+
 	});
 
 	context.subscriptions.push(disposable);
@@ -47,12 +55,15 @@ function getWebviewContent(){
 		document.addEventListener('DOMContentLoaded', function() {
 		const p1 = document.getElementById('p1');
 		p1.style.color = 'green';
+		const button1 = document.getElementById('button1');
+		button1.style.color = 'red';
 		});
 	   </script>	
     </head>
     <body>
       <h1>Hello World</h1>
       <p id='p1'>Created for TFG</p>
+	  <button id='button1' type="Call extension.js" value="Call extension.js" onclick="vscode.postMessage({command: 'alert', text: 'Si ves esto es que funciona'});"> Click for alert </button>
     </body>
     </html>
   `;
