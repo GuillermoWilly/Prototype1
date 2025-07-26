@@ -26,7 +26,7 @@ function activate(context) {
 			'Prototype1',
 			'Vs code prototype for tfg',
 			vscode.ViewColumn.One,
-			{}
+			{enableScripts:true}
 		)
 		panel.webview.html = getWebviewContent();
 
@@ -42,20 +42,17 @@ function getWebviewContent(){
     <head>
       <meta charset="UTF-8">
       <title>Testing Prototype1</title>
-      <style>
-        body {
-          font-family: sans-serif;
-          text-align: center;
-          padding: 50px;
-        }
-        h1 {
-          color: #3498db;
-        }
-      </style>
+	  <script>
+	  	const vscode = acquireVsCodeApi();
+		document.addEventListener('DOMContentLoaded', function() {
+		const p1 = document.getElementById('p1');
+		p1.style.color = 'green';
+		});
+	   </script>	
     </head>
     <body>
-      <h1>Hello World!</h1>
-      <p>Created for TFG.</p>
+      <h1>Hello World</h1>
+      <p id='p1'>Created for TFG</p>
     </body>
     </html>
   `;
