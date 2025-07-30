@@ -10,25 +10,118 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:uvl"
+  ],
   "main": "./extension.js",
   "contributes": {
-    "commands": [{
+    "languages": [
+      {
+        "id": "uvl",
+        "extensions": [
+          ".uvl"
+        ],
+        "name": "UVL"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "flamaActivity",
+          "title": "Flama for VSCode",
+          "icon": "./files/logo_sqr.svg"
+        }
+      ]
+    },
+    "views": {
+      "flamaActivity": [
+        {
+          "id": "flamaView",
+          "name": "Flama Operations",
+          "when": "resourceExtname == .uvl"
+        }
+      ]
+    },
+    "commands": [
+      {
       "command": "Prototype1.helloWorld",
       "title": "TestExtension"
-    }]
+    },
+      {
+        "command": "Products",
+        "title": "flamapy.products"
+      },
+      {
+        "command": "Valid",
+        "title": "flamapy.valid"
+      },
+      {
+        "command": "Atomic Sets",
+        "title": "flamapy.atomic_sets"
+      },
+      {
+        "command": "Avg Branching Factor",
+        "title": "flamapy.average_branching_factor"
+      },
+      {
+        "command": "Count Leafs",
+        "title": "flamapy.count_leafs"
+      },
+      {
+        "command": "Estimated #Configurations",
+        "title": "flamapy.estimated_number_of_products"
+      },
+      {
+        "command": "Leaf feature lists",
+        "title": "flamapy.leaf_features"
+      },
+      {
+        "command": "Max Depth",
+        "title": "flamapy.max_depth"
+      },
+      {
+        "command": "Core Features",
+        "title": "flamapy.core_features"
+      },
+      {
+        "command": "Dead Features",
+        "title": "flamapy.dead_features"
+      },
+      {
+        "command": "Error detection",
+        "title": "flamapy.error_detection"
+      },
+      {
+        "command": "False Optional Features",
+        "title": "flamapy.false_optional_features"
+      },
+      {
+        "command": "#Configurations",
+        "title": "flamapy.products_number"
+      }
+    ]
   },
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "vscode-test"
+    "test": "node ./test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.95.0",
-    "@types/mocha": "^10.0.9",
-    "@types/node": "20.x",
-    "eslint": "^9.13.0",
-    "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.4.1"
-  }
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "20.2.5",
+    "@types/vscode": "^1.81.0",
+    "@vscode/test-electron": "^2.3.2",
+    "eslint": "^8.41.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^5.1.3"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "pyodide": "^0.24.1"
+  },
+  "files": [
+    "files/*"
+  ]
 }
