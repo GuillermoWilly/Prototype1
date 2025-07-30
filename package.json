@@ -13,91 +13,10 @@
   "activationEvents": [],
   "main": "./extension.js",
   "contributes": {
-    "languages": [
-      {
-        "id": "uvl",
-        "extensions": [
-          ".uvl"
-        ],
-        "name": "UVL"
-      }
-    ],
-    "viewsContainers": {
-      "activitybar": [
-        {
-          "id": "flamaActivity",
-          "title": "Flama for VSCode",
-          "icon": "./files/logo_sqr.svg"
-        }
-      ]
-    },
-    "views": {
-      "flamaActivity": [
-        {
-          "id": "flamaView",
-          "name": "Flama Operations",
-          "when": "resourceExtname == .uvl"
-        }
-      ]
-    },
-    "commands": [
-      {
+    "commands": [{
       "command": "Prototype1.helloWorld",
       "title": "TestExtension"
-    },
-    {
-        "command": "Products",
-        "title": "flamapy.products"
-      },
-      {
-        "command": "Valid",
-        "title": "flamapy.valid"
-      },
-      {
-        "command": "Atomic Sets",
-        "title": "flamapy.atomic_sets"
-      },
-      {
-        "command": "Avg Branching Factor",
-        "title": "flamapy.average_branching_factor"
-      },
-      {
-        "command": "Count Leafs",
-        "title": "flamapy.count_leafs"
-      },
-      {
-        "command": "Estimated #Configurations",
-        "title": "flamapy.estimated_number_of_products"
-      },
-      {
-        "command": "Leaf feature lists",
-        "title": "flamapy.leaf_features"
-      },
-      {
-        "command": "Max Depth",
-        "title": "flamapy.max_depth"
-      },
-      {
-        "command": "Core Features",
-        "title": "flamapy.core_features"
-      },
-      {
-        "command": "Dead Features",
-        "title": "flamapy.dead_features"
-      },
-      {
-        "command": "Error detection",
-        "title": "flamapy.error_detection"
-      },
-      {
-        "command": "False Optional Features",
-        "title": "flamapy.false_optional_features"
-      },
-      {
-        "command": "#Configurations",
-        "title": "flamapy.products_number"
-      }
-  ]
+    }]
   },
   "scripts": {
     "lint": "eslint .",
@@ -111,12 +30,5 @@
     "eslint": "^9.13.0",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.4.1"
-  },
-  "dependencies": {
-    "node-fetch": "^3.3.2",
-    "pyodide": "^0.24.1"
-  },
-  "files": [
-    "files/*"
-  ]
+  }
 }
