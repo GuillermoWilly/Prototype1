@@ -46,7 +46,7 @@
       {
       "command": "Prototype1.helloWorld",
       "title": "TestExtension"
-    },
+      },
       {
         "command": "Products",
         "title": "flamapy.products"
